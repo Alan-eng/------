@@ -5,9 +5,23 @@ export default defineNuxtConfig({
   ssr: false,
   modules: [
     '@nuxtjs/supabase',
-    '@nuxt/ui'
+    '@nuxt/ui',
+    'nuxt-primevue'
   ],
+  primevue: {
+    theme: 'aura-light-green',
+    components: {
+      include: ['Button', 'Dropdown', 'Calendar', 'InputNumber', 'DataTable', 'Column', 'Card', 'Dialog', 'Toast', 'Slider']
+    },
+    options: {
+      unstyled: false,
+      ripple: true
+    }
+  },
   css: [
+    'primevue/resources/themes/aura-light-green/theme.css',
+    'primevue/resources/primevue.css',
+    'primeicons/primeicons.css',
     '@/assets/styles/main.scss'
   ],
   build: {

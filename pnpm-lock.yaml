@@ -33,6 +33,9 @@ importers:
       '@types/node':
         specifier: ^22.10.7
         version: 22.10.7
+      nuxt-primevue:
+        specifier: ^3.0.0
+        version: 3.0.0(magicast@0.3.5)(rollup@4.31.0)(vue@3.5.13(typescript@5.7.3))
       primeicons:
         specifier: ^7.0.0
         version: 7.0.0
@@ -2515,6 +2518,9 @@ packages:
 
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
+
+  nuxt-primevue@3.0.0:
+    resolution: {integrity: sha512-MC3ubLTF0hzUEsQ2gYzzlzaW1gXN9/wrpbWnS9xwK47TWw1gcfim8idu5mcOx+l66CPAtTLOR1QJahkDc4m9XA==}
 
   nuxt@3.15.2:
     resolution: {integrity: sha512-1EiQ5wYYVhgkRyaMCyuc4R5lhJtOPJTdOe3LwYNbIol3pmcO1urhNDNKfhiy9zdcA3G14zzN0W/+TqXXidchRw==}
@@ -6473,6 +6479,17 @@ snapshots:
   nth-check@2.1.1:
     dependencies:
       boolbase: 1.0.0
+
+  nuxt-primevue@3.0.0(magicast@0.3.5)(rollup@4.31.0)(vue@3.5.13(typescript@5.7.3)):
+    dependencies:
+      '@nuxt/kit': 3.15.2(magicast@0.3.5)(rollup@4.31.0)
+      pathe: 1.1.2
+      primevue: 3.53.1(vue@3.5.13(typescript@5.7.3))
+    transitivePeerDependencies:
+      - magicast
+      - rollup
+      - supports-color
+      - vue
 
   nuxt@3.15.2(@parcel/watcher@2.5.0)(@types/node@22.10.7)(db0@0.2.1)(ioredis@5.4.2)(magicast@0.3.5)(rollup@4.31.0)(sass@1.83.4)(terser@5.37.0)(typescript@5.7.3)(vite@6.0.11(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(yaml@2.7.0))(yaml@2.7.0):
     dependencies:

@@ -9,6 +9,9 @@ import Calendar from 'primevue/calendar'
 import Dialog from 'primevue/dialog'
 import Toast from 'primevue/toast'
 import ToastService from 'primevue/toastservice'
+import Dropdown from 'primevue/dropdown'
+import InputNumber from 'primevue/inputnumber'
+import FloatLabel from 'primevue/floatlabel'
 
 // Import themes
 import 'primevue/resources/themes/lara-light-blue/theme.css'
@@ -36,4 +39,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.component('Calendar', Calendar)
     nuxtApp.vueApp.component('Dialog', Dialog)
     nuxtApp.vueApp.component('Toast', Toast)
+    nuxtApp.vueApp.component('Dropdown', Dropdown)
+    nuxtApp.vueApp.component('InputNumber', InputNumber)
+    nuxtApp.vueApp.component('FloatLabel', FloatLabel)
 })

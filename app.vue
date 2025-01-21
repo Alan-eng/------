@@ -3,12 +3,12 @@
     <Toast />
     <nav class="bg-white/80 dark:bg-gray-900/80 shadow-sm backdrop-blur-sm sticky top-0 z-50 transition-colors duration-300">
       <div class="container flex justify-content-between align-items-center p-4">
-        <h1 class="text-xl font-bold text-gray-900 dark:text-white">EventTickets</h1>
+        <h1 class="text-xl font-bold text-gray-900 dark:text-white">ТуСам!</h1>
         <div class="flex gap-4 items-center">
           <Button icon="pi pi-sun" v-if="isDark" @click="toggleTheme" class="p-button-rounded p-button-text" />
           <Button icon="pi pi-moon" v-else @click="toggleTheme" class="p-button-rounded p-button-text" />
-          <Button label="Login" class="p-button-text" />
-          <Button label="Register" class="p-button-outlined" />
+          <Button label="Войти" class="p-button-text" />
+          <Button label="Регистрация" class="p-button-outlined" />
         </div>
       </div>
     </nav>
@@ -19,6 +19,20 @@
 </template>
 
 <script setup>
+import './assets/css/primevue-dark.css'
+import { ref } from 'vue'
+import Button from 'primevue/button'
+import Dropdown from 'primevue/dropdown'
+import Calendar from 'primevue/calendar'
+import InputNumber from 'primevue/inputnumber'
+import DataTable from 'primevue/datatable'
+import Column from 'primevue/column'
+import Card from 'primevue/card'
+import Dialog from 'primevue/dialog'
+import Toast from 'primevue/toast'
+import Slider from 'primevue/slider'
+import { useTheme } from './composables/useTheme'
+
 const { isDark, toggleTheme } = useTheme()
 </script>
 
