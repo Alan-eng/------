@@ -42,7 +42,7 @@
               currency="RUB"
               locale="ru-RU"
               class="w-full"
-              @update:model-value="updateFilters"
+              @update:model-value="debouncedUpdateFilters"
             />
             <InputNumber 
               v-model="priceRange[1]" 
@@ -54,7 +54,7 @@
               locale="ru-RU"
               class="w-full"
               :inputStyle="{ textAlign: 'right' }"
-              @update:model-value="updateFilters"
+              @update:model-value="debouncedUpdateFilters"
             />
           </div>
           <Slider 
@@ -64,7 +64,7 @@
             :max="10000" 
             :step="100"
             class="w-full" 
-            @change="updateFilters"
+            @change="debouncedUpdateFilters"
           />
         </div>
       </div>
@@ -102,6 +102,15 @@
 import { ref, computed } from 'vue'
 import Slider from 'primevue/slider'
 import InputNumber from 'primevue/inputnumber'
+
+// Debounce utility function
+const debounce = (fn, delay) => {
+  let timeout
+  return (...args) => {
+    clearTimeout(timeout)
+    timeout = setTimeout(() => fn(...args), delay)
+  }
+}
 
 const categories = ref([
   { name: 'Все категории', value: null },
@@ -173,6 +182,9 @@ const updateFilters = () => {
     date: selectedDate.value
   })
 }
+
+// Create debounced version of updateFilters
+const debouncedUpdateFilters = debounce(updateFilters, 300)
 
 // Сброс фильтров
 const resetFilters = () => {
