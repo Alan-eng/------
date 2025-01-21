@@ -10,13 +10,22 @@ import Dialog from 'primevue/dialog'
 import Toast from 'primevue/toast'
 import ToastService from 'primevue/toastservice'
 
-// Import the theme
+// Import themes
 import 'primevue/resources/themes/lara-light-blue/theme.css'
+import 'primevue/resources/themes/lara-dark-blue/theme.css'
 import 'primevue/resources/primevue.css'
 import 'primeicons/primeicons.css'
 
 export default defineNuxtPlugin((nuxtApp) => {
-    nuxtApp.vueApp.use(PrimeVue, { ripple: true })
+    nuxtApp.vueApp.use(PrimeVue, {
+        ripple: true,
+        unstyled: false,
+        pt: {
+            card: {
+                root: { class: 'backdrop-blur-sm bg-white/80 dark:bg-gray-900/80' }
+            }
+        }
+    })
     nuxtApp.vueApp.use(ToastService)
     
     nuxtApp.vueApp.component('Button', Button)

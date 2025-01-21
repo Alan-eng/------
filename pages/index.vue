@@ -11,29 +11,26 @@
     <!-- Grid View -->
     <div v-if="viewMode === 'grid'" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
       <div v-for="event in events" :key="event.id">
-        <Card class="event-card h-full">
+        <Card class="event-card h-full rounded-xl cursor-pointer bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm" @click="openTicketDialog(event)">
           <template #header>
             <div class="relative">
-              <img :src="event.image_url" :alt="event.title" class="w-full h-12rem object-cover" />
-              <div class="absolute top-0 right-0 m-2">
-                <span class="text-xl font-bold bg-primary-100 text-primary-900 p-2 border-round">{{ event.price }} ₽</span>
+              <img :src="event.image_url" :alt="event.title" class="w-full h-48 object-cover rounded-t-xl" />
+              <div class="absolute top-0 right-0 m-3">
+                <span class="text-xl font-bold bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm text-primary-900 dark:text-primary-100 px-4 py-2 rounded-full shadow-sm">{{ event.price }} ₽</span>
               </div>
             </div>
           </template>
           <template #title>
-            <div class="text-xl font-bold text-900">{{ event.title }}</div>
+            <div class="text-xl font-bold text-gray-900 dark:text-white">{{ event.title }}</div>
           </template>
           <template #subtitle>
-            <div class="flex align-items-center text-500">
+            <div class="flex align-items-center text-gray-500 dark:text-gray-400">
               <i class="pi pi-calendar mr-2"></i>
               {{ new Date(event.date).toLocaleDateString() }}
             </div>
           </template>
           <template #content>
-            <p class="line-clamp-3 text-700">{{ event.description }}</p>
-          </template>
-          <template #footer>
-            <Button label="Buy Tickets" class="p-button-raised w-full" @click="openTicketDialog(event)" />
+            <p class="line-clamp-3 text-gray-600 dark:text-gray-300">{{ event.description }}</p>
           </template>
         </Card>
       </div>
@@ -213,29 +210,34 @@ const purchaseTickets = async () => {
 .event-card {
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.2s ease-in-out;
   margin: 0;
 }
 
 .event-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .event-card :deep(.p-card-body) {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 1.25rem;
 }
 
 .event-card :deep(.p-card-content) {
   flex: 1;
-  padding: 1rem 0;
+  padding: 1.25rem 0;
 }
 
-.event-card :deep(.p-card-footer) {
-  margin-top: auto;
+.event-card :deep(.p-card-header) {
   padding: 0;
+  margin: 0;
+}
+
+.event-card :deep(.p-card-header img) {
+  display: block;
+  width: 100%;
 }
 </style>
